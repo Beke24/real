@@ -1,10 +1,21 @@
 {
-  "builds":[ {
-    "src": "real/wsgi.py",
-    "use": "@vercel/python",
-    "config":{"maxLambdaSize":"15mb","runtime":"python3.13"}
-    
-  }],
- 
+  "version": 2,
+  "builds": [
+    {
+      "src": "real/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "real/wsgi.py"
+    }
+  ],
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "real.settings",
+    "PYTHON_VERSION": "3.13"
+  }
 }
+
 
