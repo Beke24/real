@@ -1,9 +1,14 @@
 {
-  "build": {
-    "builder": "heroku/buildpacks:20"
-  },
-  "deploy": {
-    "startCommand": "gunicorn your_project.wsgi:application --bind 0.0.0.0:$PORT"
+  "builds":[ {
+    "src": "real/wsgi.py",
+    "use": "@vercel/python",
+    "config":{"maxLambdaSize":"15mb","runtime":"python3.13"}
+    
+  }],
+  "routs":[ {
+    "src": "/(.*)",
+    "dest": "real/wsgi.py"
   }
+  ]
 }
 
