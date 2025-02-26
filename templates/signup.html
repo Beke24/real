@@ -1,0 +1,137 @@
+<!-- accounts/templates/accounts/register.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <style>
+        body
+{
+    background-color: rgb(223, 226, 226);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+h1
+{
+    text-align: center;
+    font-size: 70px;
+    font-weight: 800;
+    margin-bottom: 100px;
+    border: 5px solid black;
+}
+.container
+{
+    margin-left: 500px;
+    padding-top: 0px;
+    font-size: 27px;
+}
+a:hover{
+    color: brown;
+}
+button
+{
+    background-color:#007BFF;
+    width: 120px;
+    height: 35px;
+    font-size: 27px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+button:hover
+{
+    background-color: red;
+    color: white;
+}
+
+
+@media screen and (min-width: 1200px) {
+    h1 {
+        font-size: 80px;
+        margin-bottom: 120px;
+    }
+    .container {
+        font-size: 29px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+    button {
+        width: 120px;
+        height: 35px;
+        font-size: 30px;
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    h1 {
+        font-size: 150px;
+        margin-bottom: 80px;
+    }
+    .container {
+        font-size: 65px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+    button {
+        width: 130px;
+        height: 40px;
+        font-size: 25px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size:120px;
+        margin-bottom: 60px;
+    }
+    .container {
+        font-size: 45px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
+    button {
+        width: 120px;
+        height: 35px;
+        font-size: 22px;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 100px;
+        margin-bottom: 40px;
+    }
+    .container {
+        font-size: 40px;
+        text-align: center;
+        width: 100%;
+    }
+    button {
+        width: 100px;
+        height: 30px;
+        font-size: 18px;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <h1>Register</h1>
+    <div class="container">
+        <h3>back to please click<a href="{% url 'home' %}">home</a></h3>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+   <h3>already an account <a href="{% url 'login' %}">Login</a> </h3>
+    </div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>\
+    <style>
+        body
+{
+    background-color: rgb(223, 226, 226);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+h1
+{
+    text-align: center;
+    font-size: 70px;
+    font-weight: 800;
+    margin-bottom: 100px;
+    border: 5px solid black;
+}
+.h2
+{
+    text-align: center; 
+    font-size: 35px;
+    border: 5px solid black;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-left: 570px;
+    background-color: rgb(19, 185, 130);
+    margin-bottom: 30px;
+}
+h2{
+    padding-top: 20px;
+}
+
+#link1
+{
+    margin-left: 550px;
+}
+#link2
+{
+    margin-left: 30px;
+   
+}
+.link
+{
+    font-size: 37px;
+    padding-top: 100px;
+}
+.link:hover
+{
+color:brown;
+}
+
+
+@media screen and (min-width: 1200px) {
+    h1 {
+        font-size: 75px;
+        margin-bottom: 80px;
+    }
+    .h2 {
+        font-size: 40px;
+        width: 200px;
+        height: 200px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+    h2 {
+        padding-top: 30px;
+    }
+    .link {
+        font-size: 35px;
+    }
+    #link1 {
+        margin-left:42%;
+        transform: translateX(-80%);
+    }
+    #link2 {
+        margin-left: 40px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    h1 {
+        font-size: 120px;
+        margin-bottom: 80px;
+    }
+    .h2 {
+        width: 550px;
+        height: 550px;
+        font-size: 100px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+    .link {
+        font-size: 80px;
+    }
+    #link1 {
+        margin-left: 30%;
+        transform: translateX(-80%);
+    }
+    #link2 {
+        margin-left: 40px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 120px;
+        margin-bottom: 60px;
+    }
+    .h2 {
+        width: 150px;
+        height: 150px;
+        font-size: 50px;
+    }
+    .link {
+        font-size: 80px;
+        display:inline;
+        text-align: center;
+        margin: 10px 0;
+    }
+    #link1 {
+        margin-left: 40%;
+        transform: translateX(-80%);
+    }
+    #link2 {
+        margin-left: 40%;
+        transform: translateX(-80%);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 60px;
+        margin-bottom: 40px;
+    }
+    .h2 {
+        width: 120px;
+        height: 120px;
+        font-size: 40px;
+    }
+    .link {
+        font-size: 20px;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <h1>Welcome to Dream site </h1>
+   <div class="h2">
+    <h2>Dream</h2>
+   </div>
+    <a class="link" id="link1" href="{% url 'login' %}">Login</a> 
+    <a class="link" id="link2" href="{% url 'register' %}">signup</a>
+
+</body>
+</html>

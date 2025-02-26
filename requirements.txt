@@ -1,0 +1,15 @@
+# Core dependencies
+Django==5.1.6
+gunicorn  # Required to serve Django on Render
+
+# Admin UI
+django-jazzmin  # Jazzmin for the Django admin panel
+
+# Static file management (required for production)
+whitenoise  
+
+# Security & Environment Management
+python-dotenv  # For managing environment variables
+
+# Optional dependencies (only if needed)
+Pillow  # Required if using ImageField in models

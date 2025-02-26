@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(223, 226, 226);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 50px;
+            border: 5px solid black;
+            padding: 10px;
+        }
+
+        p {
+            font-size: 30px;
+            margin-top: 20px;
+        }
+        #submit{
+            background-color:antiquewhite
+        }
+         #submit2,#submit3 {
+            background-color: #007BFF;
+            width: 300px;
+            height: 40px;
+            font-size: 20px;
+            border: 2px solid black;
+            border-radius: 5px; 
+            color: black;
+            margin: 20px auto;
+            display: block;
+        }
+        .date{
+            width: 300px;
+            padding-top: 5px;
+            height: 30px;
+            background-color: black;
+            color: white;
+            margin: 20px auto;
+        }
+        #submit3:hover {
+            background-color: red;
+            color: white;
+        }
+
+        h2 {
+            font-size: 30px;
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 25px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 90%;
+            max-width: 600px;
+            height: 150px;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid black;
+            resize: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* ✅ Responsive Design */
+
+        /* Tablets & Small Laptops (Width: 769px - 1024px) */
+        @media screen and (max-width: 1024px) {
+            h1 {
+                font-size: 26px;
+                margin-bottom: 30px;
+            }
+            p {
+                font-size: 30px;
+            }
+            #submit  {
+                width: 300px;
+                height: 70px;
+                font-size: 26px;
+            }
+             #submit2 
+                {
+                width: 300px;
+                height: 80px;
+                font-size: 38px;
+            }
+            .date{
+                width: 200px;
+                height: 30px;
+                font-size: 15px;
+                
+            }
+          
+            label, h2 {
+                font-size: 44px;
+            }
+        }
+
+        /* Mobile Devices (Width: 0px - 768px) */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 26px;
+                margin-bottom: 20px;
+            }
+            p {
+                font-size: 30px;
+            }
+            #submit  {
+                width: 300px;
+                height: 70px;
+                font-size: 26px;
+            }
+             #submit2 
+                {
+                width: 300px;
+                height: 80px;
+                font-size: 38px;
+            }
+            #date{
+                width: 300px;
+                height: 80px;
+                font-size: 36px;
+            }
+            label, h2 {
+                font-size: 40px;
+            }
+            textarea {
+                height: 120px;
+            }
+        }
+
+        /* Large Screens (Above 1440px) */
+        @media screen and (min-width: 1440px) {
+            h1 {
+            font-size: 25px;
+            }
+        
+        }
+        #submit  {
+                width: 200px;
+                height: 40px;
+                font-size: 16px;
+            }
+             #submit2 
+                {
+                width: 200px;
+                height: 40px;
+                font-size: 25px;
+            }
+            #date{
+                width: 200px;
+                height: 40px;
+                font-size: 26px;
+               
+            }
+            label {
+                font-size: 20px;
+            }
+          h2 {
+                font-size: 20px;
+                margin-top: 0px;
+            }
+            textarea {
+                height: 120px;
+            }
+
+    </style>
+</head>
+<body>
+    
+
+    
+
+     <h1>WELCOME DREAM PERSONAL PROFILE PAGE</h1>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" id="submit3">Logout</button>
+    </form>
+   <div class="container1">
+    <p>{{ user.profile_picture }}Welcome,<strong> {{ user.username }}! </strong>  </p>
+    <form action="" method="post">
+        <p>{% csrf_token %}</p>
+        <button id="submit" type="submit" {% if is_disabled %}
+        disabled
+        {% endif %}>
+        attendance</button>
+    </form>
+   </div>
+
+    <div class="container2">
+       
+
+        <form action="" method="POST">
+            
+            <h3>Your Assigned Tasks:</h3>
+            {% if tasks %}
+                <ul>
+                    {% for task in tasks %}
+                        <li>
+                            <form action="submit_feedback.php" method="POST">
+                                
+                                <textarea id="opinion" name="opinion" rows="10" cols="70" required>  {{ task.title }}- {{ task.discripton }} </textarea><br><br>
+                        
+                                
+                            </form>
+                            
+                            
+                        </li>
+                    {% endfor %}
+            {% else %}
+            <p>No tasks assigned.</p>
+                </ul>
+            
+            {% endif %}
+            
+        
+        </form>
+            <h2 class="date">{{date}}</h2>
+        
+    
+    </div>
+   
+    <script>
+        setInterval(function() {
+            location.reload();  // Reloads the page
+        }, 3000);  //
+    </script>
+</body>
+
+</html>
